@@ -1,5 +1,4 @@
 .PageTitle {
-    
     border-left: 10px solid #006c90;
     padding: 15px;
     background: #006c9025;
@@ -17,7 +16,7 @@
     font-weight: 300;
 }
 
-.PageTitle.error{
+.PageTitle.error {
     border-left: 12px solid#cb2d3e;
-    background:#cb2d3e25;
+    background: #cb2d3e25;
 }

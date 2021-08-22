@@ -1,29 +1,10 @@
 import React from 'react'
 import { useReducer } from 'react';
 import PageTitle from '../../components/layout/PageTitle'
-
-const initialState ={
-    cart: [],
-    products: [],
-    user: null,
-    //foco....
-    number:0,
-
-}
-
-function reducer(state, action){
-    switch (action.type) {
-        case 'add2':
-            return {...state, number: state.number + 2};
-        
-        case 'login':
-            return { ...state, user: { name: action.payload}}
-        default:
-            return state;
-    }
+import {initialState, reducer} from '../../store/config'
+import {add_2, login} from '../../store/action'
 
 
-}
 
 const UseReducer = (props) => {
     const [state, dispatch] = useReducer(reducer, initialState)
@@ -42,11 +23,23 @@ const UseReducer = (props) => {
                 <spsn className="text">{state.number}</spsn>
                 <div>
 
-                    <button className="btn" onClick={() => dispatch({type:'login', payload:'Maria'})}>
+                    <button className="btn" onClick={() => login(dispatch,'Maria')}>
                         Login
                     </button>
-                    <button className="btn" onClick={()=>dispatch({type: 'add2'})}>
+                    <button className="btn" onClick={()=> add_2(dispatch)}>
                         +2
+                    </button>
+                    <button className="btn" onClick={() => dispatch({ type: 'multi_7' })}>
+                        *7
+                    </button>
+                    <button className="btn" onClick={() => dispatch({ type: 'divid_25' })}>
+                        /25
+                    </button>
+                    <button className="btn" onClick={() => dispatch({ type: 'Int' })}>
+                        Interiro
+                    </button>
+                    <button className="btn" onClick={() => dispatch({ type: 'add_n', payload: -1})}>
+                        -1
                     </button>
                 </div>
             </div>
